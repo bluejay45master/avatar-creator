@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bluejay's ice cream shoppe</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h1>change contents notes</h1>
+        <div class="row">
+            <div>
+                <label for="first">first name</label>
+                <input type="text" id="first" name="first_name" placeholder="jane">
+            </div>
+
+            <div>
+                <label for="last">first name</label>
+                <input type="text" id="last" name="last_name" placeholder="doe">
+                <button name="Clear">Clear</button>
+                <p class="hidden"></p>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const firstname = document.getElementById('first');
+        const lastname = document.getElementById('last');
+        const full = document.querySelector('p');
+const clearButton = document.querySelector('[name="clear"]');
+
+        firstname.addEventListener('change', function (e) {
+            let first = firstname.value;
+            let last = lastname.value;
+            let fullName = `Hello ${first} ${last}!`;
+
+            full.textContent = fullName;
+            if (fullName.length>1){
+                full.classList.remove("hidden")
+            } else{
+                full.classList.add("hidden")
+            }
+            full.textContent = `Hello ${fullname}!`;
+        });
+
+
+        clearButton.addEventListener('click', function (e) {
+            firstname.value = "";
+            lastname.value = "";
+            full.textContent = "";
+        })
+
+
+    </script>
+</body>
+</html>
